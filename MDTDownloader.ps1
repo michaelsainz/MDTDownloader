@@ -107,5 +107,5 @@ New-Item -Path "DS001:\Task Sequences" -Name Deploy -ItemType Directory | Out-Nu
 
 Foreach ($i in $DownLoadArtifacts.GetEnumerator()) {
     Write-Debug -Message "Creating application: $($i.Key)"
-    Import-MDTApplication -Path "DS001:\Applications\Microsoft" -Name $i.Key -ApplicationSourcePath "$DownloadLocation\$($i.Key)" -DestinationFolder $i.Key -CommandLine (Split-Path -Path $i.Value -Leaf) -ShortName $i.Key | Out-Null
+    Import-MDTApplication -Path "DS001:\Applications\Microsoft" -Name $i.Key -ApplicationSourcePath "$DownloadLocation\$($i.Key)" -DestinationFolder $i.Key -CommandLine $i.Value.CommandLine -ShortName $i.Key | Out-Null
 }
