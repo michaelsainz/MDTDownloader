@@ -77,16 +77,16 @@
         Url = "http://download.microsoft.com/download/1/7/5/175E764B-E417-4FBB-95DF-62676FC7B2EA/NDP462-KB3120735-x86-x64-AllOS-ENU.exe";
         CommandLine = "NDP462-KB3120735-x86-x64-AllOS-ENU.exe /s"
     }
-        MDT2013U2 = @{
-        FullName = "Microsoft Deployment Toolkit 2013 Update 2";
-        ShortName = "MDT2013U2";
-        Url = "http://download.microsoft.com/download/3/0/1/3012B93D-C445-44A9-8BFB-F28EB937B060/MicrosoftDeploymentToolkit2013_x64.msi";
-        CommandLine = "msiexec.exe /i MicrosoftDeploymentToolkit2013_x64.msi /qn"
+        MDT = @{
+        FullName = "Microsoft Deployment Toolkit Build 8443";
+        ShortName = "MDT";
+        Url = "https://download.microsoft.com/download/3/3/9/339BE62D-B4B8-4956-B58D-73C4685FC492/MicrosoftDeploymentToolkit_x64.msi";
+        CommandLine = "msiexec.exe /i MicrosoftDeploymentToolkit_x64.msi /qn"
     }
-        ADKv1607 = @{
-        FullName = "Automated Installation Kit v1607";
-        ShortName = "ADKv1607";
-        Url = "http://download.microsoft.com/download/9/A/E/9AE69DD5-BA93-44E0-864E-180F5E700AB4/adk/adksetup.exe";
+        ADKv1703 = @{
+        FullName = "Automated Installation Kit v1703";
+        ShortName = "ADKv1703";
+        Url = "http://download.microsoft.com/download/5/D/9/5D915042-FCAA-4859-A1C3-29E198690493/adk/adksetup.exe";
         CommandLine = "adksetup.exe /qn"
     }
 }

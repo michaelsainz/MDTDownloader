@@ -62,20 +62,20 @@ Write-Verbose -Message "Waiting for download artifact jobs to finish"
 Get-Job | Wait-Job | Out-Null
 
 Write-Debug -Message 'Checking to see if MDT is already installed'
-If (-not (Get-CimInstance -ClassName 'Win32_Product' -Filter "IdentifyingNumber='{F172B6C7-45DD-4C22-A5BF-1B2C084CADEF}'")) {
+If (-not (Get-CimInstance -ClassName 'Win32_Product' -Filter "IdentifyingNumber='{9547DE37-4A70-4194-97EA-ACC3E747254B}'")) {
     Write-Debug -Message 'MDT is not currently installed'
     Write-Verbose -Message 'Installing Microsoft Deployment Toolkit'
-    Start-Process -FilePath "$env:SystemRoot\System32\msiexec.exe" -ArgumentList "/i $DownloadLocation\MDT2013U2\MicrosoftDeploymentToolkit2013_x64.msi /qn" -Wait
+    Start-Process -FilePath "$env:SystemRoot\System32\msiexec.exe" -ArgumentList "/i $DownloadLocation\MDT\MicrosoftDeploymentToolkit_x64.msi /qn" -Wait
 }
 Else {
     Write-Debug -Message 'MDT is already installed'
 }
 
 Write-Debug -Message 'Checking to see if the ADK is already installed'
-If (-not (Get-CimInstance -ClassName 'Win32_Product' -Filter "IdentifyingNumber='{52EA560E-E50F-DC8F-146D-1B631548BA29}'")) {
+If (-not (Get-CimInstance -ClassName 'Win32_Product' -Filter "IdentifyingNumber='{A116E77A-9D39-2577-345F-920083B2950A}'")) {
     Write-Debug -Message 'The ADK is not currently installed'
     Write-Verbose -Message 'Installing the Automated Deployment Kit'
-    Start-Process -FilePath "$DownloadLocation\ADKv1607\adksetup.exe" -ArgumentList '/Features OptionId.DeploymentTools OptionId.WindowsPreinstallationEnvironment OptionId.UserStateMigrationTool /norestart /quiet /ceip off' -Wait
+    Start-Process -FilePath "$DownloadLocation\ADKv1703\adksetup.exe" -ArgumentList '/Features OptionId.DeploymentTools OptionId.WindowsPreinstallationEnvironment OptionId.UserStateMigrationTool /norestart /quiet /ceip off' -Wait
 
 }
 Else {
